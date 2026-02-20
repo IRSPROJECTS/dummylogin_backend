@@ -26,6 +26,9 @@ bcrypt = Bcrypt(app)
 # MODEL
 # =====================
 
+with app.app_context():
+    db.create_all()
+    
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)

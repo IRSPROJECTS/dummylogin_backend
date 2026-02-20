@@ -32,7 +32,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
-    
+
 with app.app_context():
     db.create_all()
 
@@ -87,8 +87,5 @@ def home():
 
 
 if __name__ == "__main__":
-    with app.app_context():
-        # This line must be indented (usually 4 spaces)
-        db.create_all()
 
     app.run(host="0.0.0.0", port=5000)

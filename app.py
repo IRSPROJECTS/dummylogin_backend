@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
-database_url = os.environ.get("DATABASE_URL")
+database_url = os.environ.get("DATABASE_URL") or "sqlite:///local.db"
 
 if not database_url:
     raise RuntimeError("DATABASE_URL environment variable is not set!")
